@@ -1,0 +1,5 @@
+Adafruit NeoPixel
+DHT sensor library
+Adafruit Unified Sensor
+MFRC522
+U8g2

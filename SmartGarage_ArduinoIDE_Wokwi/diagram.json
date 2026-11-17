@@ -1,0 +1,346 @@
+{
+  "version": 1,
+  "author": "ESP32 Smart Garage - generated from user's esp32_SmartGarage.ino",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 40,
+      "left": 20,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": -120,
+      "left": 300,
+      "attrs": {
+        "temperature": "29",
+        "humidity": "55"
+      }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled",
+      "top": -100,
+      "left": -190,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay",
+      "top": 290,
+      "left": 300,
+      "attrs": {
+        "transistor": "pnp"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledRed",
+      "top": 300,
+      "left": -170,
+      "attrs": {
+        "color": "red",
+        "label": "LED DO GPIO25"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rRed",
+      "top": 350,
+      "left": -90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledGreen",
+      "top": 410,
+      "left": -170,
+      "attrs": {
+        "color": "green",
+        "label": "LED XANH GPIO33"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rGreen",
+      "top": 460,
+      "left": -90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir",
+      "top": -100,
+      "left": 500,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 80,
+      "left": 520,
+      "attrs": {
+        "volume": "0.1"
+      }
+    },
+    {
+      "type": "wokwi-led-ring",
+      "id": "ring",
+      "top": 250,
+      "left": 520,
+      "attrs": {
+        "pixels": "12"
+      }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr",
+      "top": 470,
+      "left": 500,
+      "attrs": {}
+    },
+    {
+      "type": "board-mfrc522",
+      "id": "rfid",
+      "top": -300,
+      "left": 500,
+      "attrs": {
+        "uid": "1D:34:E9:00"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX0",
+      "$serialMonitor:RX",
+      "",
+      "[]"
+    ],
+    [
+      "esp:RX0",
+      "$serialMonitor:TX",
+      "",
+      "[]"
+    ],
+    [
+      "esp:4",
+      "dht:SDA",
+      "green",
+      "[]"
+    ],
+    [
+      "esp:3V3",
+      "dht:VCC",
+      "red",
+      "[]"
+    ],
+    [
+      "esp:GND.1",
+      "dht:GND",
+      "black",
+      "[]"
+    ],
+    [
+      "esp:21",
+      "oled:SDA",
+      "green",
+      "[]"
+    ],
+    [
+      "esp:22",
+      "oled:SCL",
+      "yellow",
+      "[]"
+    ],
+    [
+      "esp:3V3",
+      "oled:VCC",
+      "red",
+      "[]"
+    ],
+    [
+      "esp:GND.1",
+      "oled:GND",
+      "black",
+      "[]"
+    ],
+    [
+      "esp:26",
+      "relay:IN",
+      "orange",
+      "[]"
+    ],
+    [
+      "esp:VIN",
+      "relay:VCC",
+      "red",
+      "[]"
+    ],
+    [
+      "esp:GND.1",
+      "relay:GND",
+      "black",
+      "[]"
+    ],
+    [
+      "esp:25",
+      "ledRed:A",
+      "red",
+      "[]"
+    ],
+    [
+      "ledRed:C",
+      "rRed:1",
+      "",
+      "[]"
+    ],
+    [
+      "rRed:2",
+      "esp:GND.1",
+      "black",
+      "[]"
+    ],
+    [
+      "esp:33",
+      "ledGreen:A",
+      "green",
+      "[]"
+    ],
+    [
+      "ledGreen:C",
+      "rGreen:1",
+      "",
+      "[]"
+    ],
+    [
+      "rGreen:2",
+      "esp:GND.1",
+      "black",
+      "[]"
+    ],
+    [
+      "esp:32",
+      "pir:OUT",
+      "blue",
+      "[]"
+    ],
+    [
+      "esp:VIN",
+      "pir:VCC",
+      "red",
+      "[]"
+    ],
+    [
+      "esp:GND.1",
+      "pir:GND",
+      "black",
+      "[]"
+    ],
+    [
+      "esp:14",
+      "buzzer:2",
+      "purple",
+      "[]"
+    ],
+    [
+      "esp:GND.1",
+      "buzzer:1",
+      "black",
+      "[]"
+    ],
+    [
+      "esp:13",
+      "ring:DIN",
+      "green",
+      "[]"
+    ],
+    [
+      "esp:VIN",
+      "ring:VCC",
+      "red",
+      "[]"
+    ],
+    [
+      "esp:GND.1",
+      "ring:GND",
+      "black",
+      "[]"
+    ],
+    [
+      "esp:34",
+      "ldr:DO",
+      "orange",
+      "[]"
+    ],
+    [
+      "esp:VIN",
+      "ldr:VCC",
+      "red",
+      "[]"
+    ],
+    [
+      "esp:GND.1",
+      "ldr:GND",
+      "black",
+      "[]"
+    ],
+    [
+      "esp:5",
+      "rfid:SDA",
+      "gold",
+      "[]"
+    ],
+    [
+      "esp:18",
+      "rfid:SCK",
+      "blue",
+      "[]"
+    ],
+    [
+      "esp:23",
+      "rfid:MOSI",
+      "green",
+      "[]"
+    ],
+    [
+      "esp:19",
+      "rfid:MISO",
+      "purple",
+      "[]"
+    ],
+    [
+      "esp:27",
+      "rfid:RST",
+      "orange",
+      "[]"
+    ],
+    [
+      "esp:3V3",
+      "rfid:3.3V",
+      "red",
+      "[]"
+    ],
+    [
+      "esp:GND.1",
+      "rfid:GND",
+      "black",
+      "[]"
+    ]
+  ],
+  "dependencies": {
+    "Adafruit NeoPixel": "^1.12.0",
+    "DHT sensor library": "^1.4.6",
+    "Adafruit Unified Sensor": "^1.1.14",
+    "MFRC522": "^1.4.11",
+    "U8g2": "^2.35.30"
+  }
+}
